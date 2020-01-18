@@ -20,14 +20,14 @@ class DriveTrain(Subsystem):
 
     def drive_with_joystick(self, controller):
         left_trigger  = (controller.getRawAxis(robot_map.ds4["l2_axis"]) + 1) / 2
-        right_trigger = (controller.getRawAxis(4) + 1) / 2
+        right_trigger = (controller.getRawAxis(robot_map.ds4["r2_axis"]) + 1) / 2
 
         multiplier = .40 + (left_trigger * .30) + (right_trigger * .30)
         
-        left  = controller.getRawAxis(5) * multiplier
-        right = controller.getRawAxis(1) * multiplier
+        left  = controller.getRawAxis(robot_map.ds4["l-y_axis"]) * multiplier
+        right = controller.getRawAxis(robot_map.ds4["r-y_axis"]) * multiplier
 
-        if controller.getRawButtonPressed(5):
+        if controller.getRawButtonPressed(robot_map.ds4[r1]):
             self.gearshift.set(not self.gearshift.get())
 
         self.left1.set(left)
