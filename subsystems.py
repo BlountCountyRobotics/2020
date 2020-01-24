@@ -1,7 +1,7 @@
 import ctre
 import wpilib
 from wpilib.command import Subsystem
-from commands.drivetrain import *
+from commands.drivetrain import FollowJoystick
 import robot_map
 
 class DriveTrain(Subsystem):
@@ -27,9 +27,12 @@ class DriveTrain(Subsystem):
         left  = controller.getRawAxis(robot_map.ds4["l-y_axis"]) * multiplier
         right = controller.getRawAxis(robot_map.ds4["r-y_axis"]) * multiplier
 
-        if controller.getRawButtonPressed(robot_map.ds4[r1]):
+        if controller.getRawButtonPressed(robot_map.ds4["r1"]):
             self.gearshift.set(not self.gearshift.get())
+        
+        self.set_motors(left, right)
 
+    def set_motors(self, left, right):
         self.left1.set(left)
         self.left2.set(left)
         self.left3.set(left)
