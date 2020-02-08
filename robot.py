@@ -7,7 +7,7 @@ import commands, robot_map, wpilib, subsystems
 #     _/          _/  _/  _/      _/      
 #    _/    _/_/_/      _/        _/  
 
-class GRAPE(wpilib.TimedRobot):
+class Lyra(wpilib.TimedRobot):
     def robotInit(self):
         wpilib.TimedRobot.__init__(self)
 
@@ -43,4 +43,4 @@ class GRAPE(wpilib.TimedRobot):
         wpilib.buttons.JoystickButton(self.controller, robot_map.ds4["share"]).whenPressed(commands.drivetrain.EmergencyStop())
 
 if __name__ == "__main__":
-    wpilib.run(GRAPE)
+    wpilib.run(Lyra)
