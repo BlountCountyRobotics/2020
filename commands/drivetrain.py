@@ -2,7 +2,7 @@ from wpilib.command import Command
 
 class FollowJoystick(Command):
     def __init__(self):
-        super().__init__("Follow Joystick")
+        Command.__init__(self, "Follow Joystick")
         self.requires(self.getRobot().drivetrain)
 
     def execute(self):
@@ -10,7 +10,7 @@ class FollowJoystick(Command):
 
 class EmergencyStop(Command):
     def __init__(self):
-        super().__init__("EmergencyStop")
+        Command.__init__(self, "EmergencyStop")
         self.requires(self.getRobot().drivetrain)
 
     def execute(self):

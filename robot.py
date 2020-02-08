@@ -9,6 +9,8 @@ import commands, robot_map, wpilib, subsystems
 
 class GRAPE(wpilib.TimedRobot):
     def robotInit(self):
+        wpilib.TimedRobot.__init__(self)
+
         command.Command.getRobot = lambda: self
 
         self.compressor = wpilib.Compressor()

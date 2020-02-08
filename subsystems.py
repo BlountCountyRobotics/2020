@@ -6,7 +6,7 @@ import robot_map
 
 class DriveTrain(Subsystem):
     def __init__(self):
-        super().__init__('DriveTrain')
+        Subsystem.__init__(self, "DriveTrain")
 
         self.left1 = ctre.WPI_TalonSRX(robot_map.drivetrain_motors["left1"])
         self.left2 = ctre.WPI_TalonSRX(robot_map.drivetrain_motors["left2"])
