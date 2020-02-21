@@ -8,15 +8,15 @@ class DriveTrain(Subsystem):
     def __init__(self):
         Subsystem.__init__(self, "DriveTrain")
 
-        self.left1 = ctre.WPI_TalonSRX(robot_map.drivetrain_motors["left1"])
-        self.left2 = ctre.WPI_TalonSRX(robot_map.drivetrain_motors["left2"])
-        self.left3 = ctre.WPI_TalonSRX(robot_map.drivetrain_motors["left3"])
+        self.left1 = ctre.TalonSRX(robot_map.drivetrain_motors["left1"])
+        self.left2 = ctre.TalonSRX(robot_map.drivetrain_motors["left2"])
+        self.left3 = ctre.TalonSRX(robot_map.drivetrain_motors["left3"])
 
-        self.right1 = ctre.WPI_TalonSRX(robot_map.drivetrain_motors["right1"])
-        self.right2 = ctre.WPI_TalonSRX(robot_map.drivetrain_motors["right2"])
-        self.right3 = ctre.WPI_TalonSRX(robot_map.drivetrain_motors["right3"])
+        self.right1 = ctre.TalonSRX(robot_map.drivetrain_motors["right1"])
+        self.right2 = ctre.TalonSRX(robot_map.drivetrain_motors["right2"])
+        self.right3 = ctre.TalonSRX(robot_map.drivetrain_motors["right3"])
 
-        self.gearshift = wpilib.Solenoid(1)
+       # self.gearshift = wpilib.Solenoid(1)
 
     def drive_with_joystick(self, controller):
         left_trigger  = (controller.getRawAxis(robot_map.ds4["l2_axis"]) + 1) / 2
@@ -27,19 +27,20 @@ class DriveTrain(Subsystem):
         left  = controller.getRawAxis(robot_map.ds4["l-y_axis"]) * multiplier
         right = controller.getRawAxis(robot_map.ds4["r-y_axis"]) * multiplier
 
-        if controller.getRawButtonPressed(robot_map.ds4["r1"]):
-            self.gearshift.set(not self.gearshift.get())
+        #if controller.getRawButtonPressed(robot_map.ds4["r1"]):
+            #self.gearshift.set(not self.gearshift.get())
         
         self.set_motors(left, right)
 
     def set_motors(self, left, right):
-        self.left1.set(left)
-        self.left2.set(left)
-        self.left3.set(left)
 
-        self.right1.set(-right)
-        self.right2.set(-right)
-        self.right3.set(-right)
+        self.left1.set(ctre.ControlMode.PercentOutput, left)
+        self.left2.set(ctre.ControlMode.PercentOutput, left)
+        self.left3.set(ctre.ControlMode.PercentOutput, left)
+
+        self.right1.set(ctre.ControlMode.PercentOutput, -right)
+        self.right2.set(ctre.ControlMode.PercentOutput, -right)
+        self.right3.set(ctre.ControlMode.PercentOutput, -right)
 
     def initDefaultCommand(self):
         self.setDefaultCommand(FollowJoystick())
