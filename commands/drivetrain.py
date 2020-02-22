@@ -17,5 +17,8 @@ class EmergencyStop(Command):
         Command.__init__(self, "EmergencyStop")
         self.requires(self.getRobot().drivetrain)
 
+    def isFinished(self):
+        return False
+
     def execute(self):
         self.getRobot().drivetrain.set_motors(0.0, 0.0)
