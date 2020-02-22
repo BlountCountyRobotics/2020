@@ -29,3 +29,10 @@ drivetrain_motors = {
     "right2": 4,
     "right3": 5
 }
+
+shooter_motors = {
+    "motor1"  : 0,
+    "motor2"  : 1
+}
+
+shooter_output = .7

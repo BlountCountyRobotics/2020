@@ -41,6 +41,7 @@ class Lyra(CommandBasedRobot):
 
     def initOI(self):
         buttons.JoystickButton(self.controller, robot_map.ds4["share"]).whenPressed(commands.drivetrain.EmergencyStop())
+        buttons.JoystickButton(self.controller, robot_map.ds4["l1"]).whileHeld(commands.shooter.Shoot())
 
 if __name__ == "__main__":
     wpilib.run(Lyra)

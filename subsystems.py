@@ -1,9 +1,11 @@
+import rev
 import ctre
 import wpilib
 from wpilib.command import Subsystem
 from commands.drivetrain import FollowJoystick
+from commands.shooter import StopShooting
 import robot_map
-
+"""
 class DriveTrain(Subsystem):
     def __init__(self):
         Subsystem.__init__(self, "DriveTrain")
@@ -44,3 +46,20 @@ class DriveTrain(Subsystem):
 
     def initDefaultCommand(self):
         self.setDefaultCommand(FollowJoystick())
+"""
+
+class Shooter(Subsystem):
+    def __init__(self):
+        self.motor1 = rev.SparkMax(robot_map.shooter_motors["motor1"])
+        self.motor2 = rev.SparkMax(robot_map.shooter_motors["motor2"])
+
+    def shoot(self):
+        self.motor1.set(robot_map.shooter_output)
+        self.motor1.set(robot_map.shooter_output)
+
+    def stop(self):
+        self.motor1.set(0.0)
+        self.motor2.set(0.0)
+
+    def initDefaultCommand(self):
+        self.setDefaultCommand(StopShooting())
