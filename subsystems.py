@@ -5,7 +5,7 @@ from wpilib.command import Subsystem
 from commands.drivetrain import FollowJoystick
 from commands.shooter import StopShooting
 import robot_map
-"""
+
 class DriveTrain(Subsystem):
     def __init__(self):
         Subsystem.__init__(self, "DriveTrain")
@@ -46,7 +46,7 @@ class DriveTrain(Subsystem):
 
     def initDefaultCommand(self):
         self.setDefaultCommand(FollowJoystick())
-"""
+
 
 class Shooter(Subsystem):
     def __init__(self):

@@ -13,10 +13,10 @@ class Lyra(CommandBasedRobot):
     def robotInit(self):
         command.Command.getRobot = lambda x: self
 
-        #self.compressor = wpilib.Compressor()
+        self.compressor = wpilib.Compressor()
         self.controller = wpilib.Joystick(0)
 
-        #self.drivetrain = subsystems.DriveTrain()
+        self.drivetrain = subsystems.DriveTrain()
         self.shooter = subsystems.Shooter()
 
         self.initOI()
