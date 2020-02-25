@@ -50,6 +50,9 @@ class DriveTrain(Subsystem):
 
 class Shooter(Subsystem):
     def __init__(self):
+        Subsystem.__init__(self, "Shooter")
+
+
         self.motor1 = rev.SparkMax(robot_map.shooter_motors["motor1"])
         self.motor2 = rev.SparkMax(robot_map.shooter_motors["motor2"])
 

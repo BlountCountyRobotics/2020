@@ -13,16 +13,18 @@ class Lyra(CommandBasedRobot):
     def robotInit(self):
         command.Command.getRobot = lambda x: self
 
-        self.compressor = wpilib.Compressor()
+        #self.compressor = wpilib.Compressor()
         self.controller = wpilib.Joystick(0)
 
-        self.drivetrain = subsystems.DriveTrain()
+        #self.drivetrain = subsystems.DriveTrain()
+        self.shooter = subsystems.Shooter()
 
         self.initOI()
 
     def robotPeriodic(self):
         CommandBasedRobot.robotPeriodic(self)
         wpilib.SmartDashboard.putString("Drivetrain", self.drivetrain.getCurrentCommand().__class__.__name__)
+        wpilib.SmartDashboard.putString("Shooter", self.shooter.getCurrentCommand().__class__.__name__)
 
     def teleopInit(self):
         pass
@@ -40,7 +42,7 @@ class Lyra(CommandBasedRobot):
         CommandBasedRobot.autonomousPeriodic(self)
 
     def initOI(self):
-        buttons.JoystickButton(self.controller, robot_map.ds4["share"]).whenPressed(commands.drivetrain.EmergencyStop())
+       # buttons.JoystickButton(self.controller, robot_map.ds4["share"]).whenPressed(commands.drivetrain.EmergencyStop())
         buttons.JoystickButton(self.controller, robot_map.ds4["l1"]).whileHeld(commands.shooter.Shoot())
 
 if __name__ == "__main__":
