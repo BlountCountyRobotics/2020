@@ -42,8 +42,9 @@ class Lyra(CommandBasedRobot):
         CommandBasedRobot.autonomousPeriodic(self)
 
     def initOI(self):
-       # buttons.JoystickButton(self.controller, robot_map.ds4["share"]).whenPressed(commands.drivetrain.EmergencyStop())
+        buttons.JoystickButton(self.controller, robot_map.ds4["share"]).whenPressed(commands.drivetrain.EmergencyStop())
         buttons.JoystickButton(self.controller, robot_map.ds4["l1"]).whileHeld(commands.shooter.Shoot())
+        buttons.JoystickButton(self.controller, robot_map.ds4["cross"]).whenPressed(commands.intakeRoller.Intake())
 
 if __name__ == "__main__":
     wpilib.run(Lyra)

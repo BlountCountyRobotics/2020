@@ -52,7 +52,6 @@ class Shooter(Subsystem):
     def __init__(self):
         Subsystem.__init__(self, "Shooter")
 
-
         self.motor1 = rev.SparkMax(robot_map.shooter_motors["motor1"])
         self.motor2 = rev.SparkMax(robot_map.shooter_motors["motor2"])
 
@@ -66,3 +65,18 @@ class Shooter(Subsystem):
 
     def initDefaultCommand(self):
         self.setDefaultCommand(StopShooting())
+
+class IntakeRoller(Subsystem):
+    def __init__(self):
+        Subsystem.__init__(self, "IntakeRoller")
+
+        self.roller_motor = ctre.TalonSRX(robot_map.IntakeRoller_motors["Roller_Motor"])
+
+    def takeIn(self):
+        self.roller_motor.set(robot_map.roller_output)
+
+    def stop(self):
+        self.roller_motor.set(0.0)
+
+    def initDefaultCommand(self):
+        self.setDefaultCommand()
