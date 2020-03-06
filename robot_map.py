@@ -22,17 +22,17 @@ ds4 = {
 }
 
 drivetrain_motors = {
-    "left1": 0,
-    "left2": 2,
-    "left3": 3,
+    "left1": 8,
+    "left2": 3,
+    "left3": 5,
     "right1": 1,
-    "right2": 4,
-    "right3": 5
+    "right2": 2,
+    "right3": 4
 }
 
 shooter_motors = {
     "motor1"  : 0,
-    "motor2"  : 1
+    "motor2"  : 8
 }
 
 shooter_output = .7
