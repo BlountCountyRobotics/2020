@@ -35,4 +35,10 @@ shooter_motors = {
     "motor2"  : 8
 }
 
-shooter_output = .7
+shooter_output = 0.7
+
+IntakeRoller_motors = {
+    "Roller_Motor" : 0
+}
+
+roller_output = 0.7
