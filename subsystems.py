@@ -36,13 +36,13 @@ class DriveTrain(Subsystem):
 
     def set_motors(self, left, right):
 
-        self.left1.set(ctre.ControlMode.PercentOutput, -left)
-        self.left2.set(ctre.ControlMode.PercentOutput, -left)
-        self.left3.set(ctre.ControlMode.PercentOutput, -left)
+        self.left1.set(ctre.ControlMode.PercentOutput, left)
+        self.left2.set(ctre.ControlMode.PercentOutput, left)
+        self.left3.set(ctre.ControlMode.PercentOutput, left)
 
-        self.right1.set(ctre.ControlMode.PercentOutput, right)
-        self.right2.set(ctre.ControlMode.PercentOutput, right)
-        self.right3.set(ctre.ControlMode.PercentOutput, right)
+        self.right1.set(ctre.ControlMode.PercentOutput, -right)
+        self.right2.set(ctre.ControlMode.PercentOutput, -right)
+        self.right3.set(ctre.ControlMode.PercentOutput, -right)
 
     def initDefaultCommand(self):
         self.setDefaultCommand(FollowJoystick())
