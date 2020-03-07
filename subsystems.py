@@ -104,6 +104,7 @@ class DropFeeder(Subsystem):
         def get(self):
             return self.DropFeeder1.get()
             return self.DropFeeder2.get()
+            
         def set(self, input):
             self.Dropper1.set(input)
             self.Dropper2.set(input)
