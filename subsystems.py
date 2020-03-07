@@ -94,3 +94,18 @@ class IntakeRoller(Subsystem):
 
     def initDefaultCommand(self):
         self.setDefaultCommand()
+
+class DropFeeder(Subsystem):
+    def __init__(self):
+        Subsystem.__init__(self, "DropFeeder")
+        self.DropFeeder1 = wpilib.Solenoid(robot_map.pcm["Dropper1"])
+        self.DropFeeder2 = wpilib.Solenoid(robot_map.pcm["Dropper2"])
+
+        def get(self):
+            return self.DropFeeder1.get()
+            return self.DropFeeder2.get()
+        def set(self, input):
+            self.Dropper1.set(input)
+            self.Dropper2.set(input)
+        def initDefaultCommand(self):
+            pass

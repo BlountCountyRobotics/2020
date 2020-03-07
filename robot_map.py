@@ -42,3 +42,8 @@ IntakeRoller_motors = {
 }
 
 roller_output = 0.7
+
+pcm = {
+    "Dropper1" : 1,
+    "Dropper2" : 2
+}
